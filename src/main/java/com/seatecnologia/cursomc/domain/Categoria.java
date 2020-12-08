@@ -16,10 +16,10 @@ public class Categoria implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
+
 	public Categoria() {
 	}
-	
+
 	public Categoria(Integer id, String nome) {
 		super();
 		this.id = id;
@@ -66,7 +66,4 @@ public class Categoria implements Serializable {
 			return false;
 		return true;
 	}
-
-	
-	
 }
