@@ -5,19 +5,28 @@ import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * Tabela que representa a relação de muitos para muitos entre Produto e Pedido.
+ * 
+ * @author pedro
+ *
+ */
 @Entity
 public class ItemPedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	// Propriedade embutida (embeded propertie)
+	@JsonIgnore // Nao serialize esse campo
 	@EmbeddedId
 	private ItemPedidoPk id = new ItemPedidoPk();
-	
+
 	private Double desconto;
 	private Integer quantidade;
 	private Double preco;
-	
+
 	public ItemPedido() {
 	}
 
@@ -29,15 +38,18 @@ public class ItemPedido implements Serializable {
 		this.quantidade = quantidade;
 		this.preco = preco;
 	}
-	
+
+	@JsonIgnore
 	public Pedido getPedido() {
 		return this.id.getPedido();
 	}
 	
+
 	public Produto getProduto() {
 		return this.id.getProduto();
 	}
 
+//	@JsonIgnore
 	public ItemPedidoPk getId() {
 		return id;
 	}
@@ -94,7 +106,5 @@ public class ItemPedido implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

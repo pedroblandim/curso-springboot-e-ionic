@@ -7,7 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- *  Chave composta de ItemPedido
+ * Chave composta de ItemPedido.
+ * 
+ * @author pedro
+ *
  */
 @Embeddable
 public class ItemPedidoPk implements Serializable {
