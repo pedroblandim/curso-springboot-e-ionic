@@ -49,7 +49,7 @@ public class ItemPedido implements Serializable {
 		return this.id.getProduto();
 	}
 
-//	@JsonIgnore
+	@JsonIgnore
 	public ItemPedidoPk getId() {
 		return id;
 	}
