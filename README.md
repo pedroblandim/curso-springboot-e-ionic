@@ -2,7 +2,31 @@
 Curso de Spring Boot, Hibernate, REST, Ionic, JWT, S3, MySQL.
 O projeto consiste num sistema de cadastro de pedidos, com autenticação de usuários.
 
+## Conceitos
+### DTO (Data Transfer Object)
+  Do Stack Overflow: 
+  > A ideia consiste basicamente em agrupar um conjunto de atributos numa classe simples de forma a otimizar a comunicação.
+  Consiste em representar uma classe complexa em uma mais simples, de modo que facilite o seu transporte.
+
 ## Anotações:
+### Validações de dados
+#### Sem acesso a dados
+##### Sintáticas
+  * Campo não pode ser vazio
+  * Valor numérico mínimo e máximo
+  * Comprimento de string mínimo e máximo
+  * Somente dígitos
+  * Padrão (regex): (##)-####-####
+  
+##### Outras 
+  * Data futura / passada
+  * Confirmação de senha igual à senha
+  
+#### Com acesso a dados
+  * Email único
+  * Cada cliente pode cadastrar no máximo três cupons por mês
+Implementar as [validações fornecidas pelo framework](https://docs.oracle.com/javaee/7/tutorial/bean-validation001.htm) na camada dos controladores, e as validações customizadas na camada de serviço. 
+
 ### Dicas
   * Cuidado com as referências cíclicas ao criar uma relação bidirecional (problema resolvido com @JsonIgnore no lado da associação que não deve ser serializada, ou utilizar @JsonManagedReference e @JsonBackReference).
   * A JPA se baseia nos métodos get das entidades para a serialização das mesmas.
@@ -26,11 +50,11 @@ O projeto consiste num sistema de cadastro de pedidos, com autenticação de usu
 #### Controladores (Resources)
   
   * Ponto de entrada da aplicação
+  * Devem ser classes enxutas
 
 #### Domínio (Domain)
 
   * Entidades do banco de dado
   * Faz a ligação entre os objetos da área de conhecimento do problema a ser tratado com o código em si.
-  
  
  
